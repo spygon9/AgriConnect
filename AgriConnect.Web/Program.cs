@@ -1,4 +1,6 @@
+using AgriConnect.Shared;
 using AgriConnect.Web.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace AgriConnect.Web
@@ -12,6 +14,17 @@ namespace AgriConnect.Web
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=con"));
+            builder.Services.AddIdentity<User, IdentityRole>(x => 
+            { 
+                x.User.RequireUniqueEmail = true; 
+                x.Password.RequireDigit = false;
+                x.Password.RequireLowercase = false;
+                x.Password.RequireUppercase = false;
+                x.Password.RequireNonAlphanumeric = false;
+                x.Password.RequiredUniqueChars = 0;
+                x.Password.RequiredLength = 6;
+            }).AddEntityFrameworkStores<DataContext>()
+                .AddDefaultTokenProviders();
 
             var app = builder.Build();
 
@@ -35,6 +48,11 @@ namespace AgriConnect.Web
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
+        }
+
+        private static object AddEntityFrameworkStores<T>()
+        {
+            throw new NotImplementedException();
         }
     }
 }
