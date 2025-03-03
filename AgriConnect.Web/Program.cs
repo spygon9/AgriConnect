@@ -40,6 +40,7 @@ namespace AgriConnect.Web
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

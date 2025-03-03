@@ -1,4 +1,5 @@
 ﻿using AgriConnect.Shared;
+using AgriConnect.Shared.DTO;
 using Microsoft.AspNetCore.Identity;
 
 namespace AgriConnect.Web.Helpers
@@ -10,7 +11,7 @@ namespace AgriConnect.Web.Helpers
         Task CheckRoleAsync(string roleName);
         Task AddUserToRoleAsync(User user, string roleName);
         Task<bool> IsUserInRoleAsync(User user, string roleName);
-        //Task<SignInResult> LoginAsync(LoginDTO login);
+        Task<SignInResult> LoginAsync(LoginDTO login);
         Task LogoutAsync();
     }
 }

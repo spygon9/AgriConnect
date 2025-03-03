@@ -13,11 +13,11 @@ namespace AgriConnect.Shared
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         [MaxLength(100, ErrorMessage = "El campo {0} debe tener máximo {1} caracter")]
         [Display(Name = "Nombre(s)")]
-        public string? FirstName { get; set; }
+        public string FirstName { get; set; } = null!;
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         [MaxLength(100, ErrorMessage = "El campo {0} debe tener máximo {1} caracter")]
         [Display(Name = "Apellidos")]
-        public string? LastName { get; set; }
+        public string LastName { get; set; } = null!;
         [Display(Name = "Foto")]
         public string? PhotoUrl { get; set; }
         public UserType UserType { get; set; }
@@ -27,5 +27,7 @@ namespace AgriConnect.Shared
         public int CityId { get; set; }
         public City? City { get; set; }
         public string FullName => $"{this.FirstName} {this.LastName}";
+
+        public string? Photo { get; set; }
     }
 }

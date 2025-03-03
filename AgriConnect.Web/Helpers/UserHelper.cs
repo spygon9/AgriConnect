@@ -1,11 +1,12 @@
 ﻿using AgriConnect.Shared;
+using AgriConnect.Shared.DTO;
 using AgriConnect.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace AgriConnect.Web.Helpers
 {
-    public class UserHelper: IUserHelper
+    public class UserHelper : IUserHelper
     {
         private readonly DataContext dataContext;
         private readonly UserManager<User> userManager;
@@ -59,13 +60,14 @@ namespace AgriConnect.Web.Helpers
             return await userManager.IsInRoleAsync(user, roleName);
         }
 
-        //public async Task<SignInResult> LoginAsync(LoginDTO login)
-        //{
-        //    return await signInManager.PasswordSignInAsync(login.Email, login.Password, false, false);
-        //}
+        public async Task<SignInResult> LoginAsync(LoginDTO login)
+        {
+            return await signInManager.PasswordSignInAsync(login.Email, login.Password, false, false);
+        }
 
         public async Task LogoutAsync()
         {
             await signInManager.SignOutAsync();
         }
+    }
 }
