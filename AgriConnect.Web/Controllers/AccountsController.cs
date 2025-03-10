@@ -43,7 +43,7 @@ namespace AgriConnect.Web.Controllers
         }
         //POST
         [HttpPost]
-        public async Task<ActionResult> Login(LoginDTO loginDTO)
+        public async Task<IActionResult> Login(LoginDTO loginDTO)
         {
             if (ModelState.IsValid)
             {
@@ -59,6 +59,11 @@ namespace AgriConnect.Web.Controllers
                 ModelState.AddModelError(string.Empty, "Email o contraseña incorrecta");
             }
             return View(loginDTO);
+        }
+        public async Task<IActionResult> Logout()
+        {
+            await userHelper.LogoutAsync();
+            return RedirectToAction(nameof(Index), "Home");
         }
         private object? BuildToken(User user)
         {
