@@ -1,11 +1,12 @@
-﻿namespace AgriConnect.Mobile
+﻿using AgriConnect.Mobile.ViewModel;
+
+namespace AgriConnect.Mobile
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
+            BindingContext = App.Current.Services.GetRequiredService<ViewModelTest>();
             InitializeComponent();
         }
 

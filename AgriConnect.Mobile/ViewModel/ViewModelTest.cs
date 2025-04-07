@@ -10,15 +10,17 @@ namespace AgriConnect.Mobile.ViewModel
 {
     partial class ViewModelTest: ObservableObject
     {
+        private readonly IFunctions functions;
         [ObservableProperty]
-        public string text;
+        string text;
         [ObservableProperty]
         int count;
+        public ViewModelTest() => this.functions = App.Current.Services.GetRequiredService<IFunctions>();
         [RelayCommand]
         public void CambiarTexto()
         {
             Count++;
-            Text ="Hola mundo";
+            Text = functions.CambiarTexto("Hola mundo", Count);
         }
     }
 }

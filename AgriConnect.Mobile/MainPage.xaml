@@ -4,9 +4,7 @@
              x:Class="AgriConnect.Mobile.MainPage"
 			 xmlns:vm="clr-namespace:AgriConnect.Mobile.ViewModel"
 			 x:DataType="vm:ViewModelTest">
-	<ContentPage.BindingContext>
-		<vm:ViewModelTest/>
-	</ContentPage.BindingContext>
+    
 
     <ScrollView>
         <VerticalStackLayout
