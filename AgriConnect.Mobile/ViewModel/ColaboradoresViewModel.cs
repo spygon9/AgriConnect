@@ -46,6 +46,11 @@ namespace AgriConnect.Mobile.ViewModel
                 Nombre = "Jane",
                 Apellidos = "Doe"
             });
+            Colaboradores.Add(new ColaboradoresModels()
+            {
+                Nombre = "Tobey",
+                Apellidos = "Maguire"
+            });
         }
     }
 }

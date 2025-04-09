@@ -3,9 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AgriConnect.Mobile.Views.ListadoColaboradores"
              xmlns:vm ="clr-namespace:AgriConnect.Mobile.ViewModel"
+             xmlns:mo ="clr-namespace:AgriConnect.Mobile.Models"
+             xmlns:te ="clr-namespace:AgriConnect.Mobile.Views.Templates"
              Title="ListadoColaboradores">
     <VerticalStackLayout x:DataType="vm:ColaboradoresViewModel">
         <Button Command="{Binding ListarColaboradoresCommand}" Text="Listar colaboradores"></Button>
-        <CollectionView ItemsSource="{Binding Colaboradores}"/>
+        <CollectionView ItemsSource="{Binding Colaboradores}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="mo:ColaboradoresModels">
+                    <te:ItemsColaboradores/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>
