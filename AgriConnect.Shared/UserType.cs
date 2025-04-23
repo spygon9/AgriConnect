@@ -4,6 +4,7 @@
     {
         Admin,
         Provider,
-        Client
+        Client,
+        User
     }
 }
